@@ -8,15 +8,9 @@ import (
 	"github.com/arpanhub/URL-shortner/handlers"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 )
 
 func main() {
-	if os.Getenv("GIN_MODE") != "release" {
-        if err := godotenv.Load(); err != nil {
-            log.Println("Warning: .env file not found, relying on environment variables")
-        }
-    }
 	config.ConnectDB()
 	router := gin.Default()
 

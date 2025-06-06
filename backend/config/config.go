@@ -6,17 +6,11 @@ import (
 	"log"
 	"os"
 	"time"
-	"github.com/joho/godotenv"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 var DB *pgxpool.Pool
  func ConnectDB(){
-	if os.Getenv("GIN_MODE") != "release" {
-		err := godotenv.Load()
-		if err != nil {
-			log.Fatal("Error loading .env file")
-		}
-	}
+
 	dbHost := os.Getenv("DB_HOST")
 	dbUser := os.Getenv("DB_USER")
 	dbPass := os.Getenv("DB_PASS")
