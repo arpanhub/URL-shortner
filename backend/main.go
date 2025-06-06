@@ -34,6 +34,8 @@ func main() {
 	if port == "" {
 		port = "8080"
 	}
+	log.Printf("🚀 Starting Gin server on port %s", port)
+
 	server_err := router.Run(":" + port)
 	if server_err != nil {
 		log.Fatal("Error starting server")
