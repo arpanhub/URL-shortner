@@ -40,7 +40,7 @@ var DB *pgxpool.Pool
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	DB,err = pgxpool.New(ctx,Db_string);
+	DB,err := pgxpool.New(ctx,Db_string);
 	if err != nil{
 		log.Fatal("Error connecting to db:",err)
 	}
