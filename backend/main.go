@@ -30,10 +30,8 @@ func main() {
 	
 	
 	
+	// 🚨 Remove fallback port!
 	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
 	server_err := router.Run(":" + port)
 	if server_err != nil {
 		log.Fatal("Error starting server")
