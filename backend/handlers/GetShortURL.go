@@ -51,8 +51,9 @@ func GetShortURL(c *gin.Context) {
 				Clicks:    clicks,
 			}
 			c.JSON(http.StatusOK, gin.H{
-				"message": "URL already exists",
-				"url":     url,
+				"message":   "URL already exists",
+				"url":       url,
+				"hyperlink": "http://localhost:8080/" + url.ShortURL, // Add hyperlink
 			})
 			return
 		} else {
@@ -78,8 +79,9 @@ func GetShortURL(c *gin.Context) {
 					Clicks:    clicks,
 				}
 				c.JSON(http.StatusOK, gin.H{
-					"message": "URL updated with custom short URL",
-					"url":     url,
+					"message":   "URL updated with custom short URL",
+					"url":       url,
+					"hyperlink": "http://localhost:8080/" + url.ShortURL, // Add hyperlink
 				})
 				return
 			} else {
@@ -129,6 +131,10 @@ func GetShortURL(c *gin.Context) {
 			})
 			return
 		}
-		c.JSON(http.StatusOK, url)
+		c.JSON(http.StatusOK, gin.H{
+			"message":   "URL shortened successfully",
+			"url":       url,
+			"hyperlink": "http://localhost:8080/" + url.ShortURL, // Add hyperlink
+		})
 	}
 }
